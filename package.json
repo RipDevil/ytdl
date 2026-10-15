@@ -1,0 +1,24 @@
+{
+  "name": "tomato-ytdl",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.12.0" },
+  "scripts": {
+    "dev": "concurrently -k \"NODE_ENV=development node --watch server/index.js\" \"vite --host 0.0.0.0\"",
+    "build": "vite build",
+    "start": "node server/index.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@fastify/static": "^8.3.0",
+    "fastify": "^5.0.0",
+    "youtube-dl-exec": "^3.1.17"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.0.0",
+    "concurrently": "^9.0.0",
+    "svelte": "^5.0.0",
+    "vite": "^8.0.0"
+  }
+}
