@@ -20,6 +20,12 @@ body {
   margin: 0;
   min-width: 320px;
 }
+#app {
+  display: grid;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
 button,
 input {
   font: inherit;
