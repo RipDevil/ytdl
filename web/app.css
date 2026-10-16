@@ -8,8 +8,8 @@
   color: #332722;
   background: #fffcfa;
   font-synthesis: none;
-  --tomato: #ff6347;
-  --tomato-dark: #bd3824;
+  --accent: #ff6347;
+  --accent-dark: #bd3824;
   --muted: #7b6b64;
   --border: #eadfd9;
 }
@@ -34,74 +34,12 @@ a {
 }
 button:focus-visible,
 a:focus-visible {
-  outline: 3px solid var(--tomato-dark);
+  outline: 3px solid var(--accent-dark);
   outline-offset: 4px;
 }
 .shell {
   width: min(850px, calc(100% - 64px));
-  margin: 0 auto;
-}
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 35px 0;
-  border-bottom: 1px solid var(--border);
-}
-.brand {
-  display: inline-flex;
-  gap: 11px;
-  align-items: center;
-  font-size: 25px;
-  font-weight: 700;
-  text-decoration: none;
-  letter-spacing: -1px;
-}
-.brand-mark {
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 10px;
-  background: var(--tomato);
-}
-.brand-mark::after {
-  content: "";
-  border-top: 6px solid transparent;
-  border-bottom: 6px solid transparent;
-  border-left: 9px solid white;
-  margin-left: 3px;
-}
-.brand-dot,
-.accent {
-  color: var(--tomato-dark);
-}
-.header-note {
-  color: var(--muted);
-  font-size: 13px;
-}
-.intro {
-  padding: 66px 0 33px;
-}
-.eyebrow {
-  color: var(--tomato-dark);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin: 0 0 20px;
-}
-h1 {
-  font-size: clamp(40px, 6vw, 58px);
-  line-height: 1.08;
-  font-weight: 650;
-  letter-spacing: -2.5px;
-  margin: 0;
-}
-.subtitle {
-  color: var(--muted);
-  margin: 21px 0 32px;
-  font-size: 15px;
-  line-height: 1.7;
+  margin: 64px auto;
 }
 .add-form label {
   display: block;
@@ -128,11 +66,11 @@ input::placeholder {
   color: #8b7e77;
 }
 input:focus {
-  border-color: var(--tomato-dark);
+  border-color: var(--accent-dark);
   box-shadow: 0 0 0 3px #ff63471a;
 }
 input[aria-invalid="true"] {
-  border-color: var(--tomato-dark);
+  border-color: var(--accent-dark);
 }
 button {
   display: flex;
@@ -143,7 +81,7 @@ button {
   border: 1px solid transparent;
   border-radius: 9px;
   padding: 15px 22px;
-  background: var(--tomato-dark);
+  background: var(--accent-dark);
   color: white;
   font-size: 13px;
   font-weight: 600;
@@ -155,9 +93,6 @@ button:hover:not(:disabled) {
 button:disabled {
   opacity: 0.55;
   cursor: default;
-}
-button span {
-  font-size: 19px;
 }
 .form-message {
   color: var(--muted);
@@ -188,7 +123,7 @@ button span {
   gap: 16px;
   margin-bottom: 19px;
 }
-h2 {
+h1 {
   display: flex;
   align-items: center;
   gap: 9px;
@@ -208,45 +143,12 @@ h2 {
   font-size: 11px;
   color: #746157;
 }
-.live-indicator,
-.section-note {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--muted);
-  font-size: 11px;
-}
-.live-indicator > span {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--tomato-dark);
-}
-.live-indicator.offline > span {
-  background: #8b7e77;
-}
 .empty-state {
   text-align: center;
   padding: 37px 20px 39px;
   background: #fff8f3;
   border: 1px dashed #e3cfc2;
   border-radius: 12px;
-}
-.empty-icon {
-  display: inline-grid;
-  place-items: center;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background: #ffebe1;
-  color: var(--tomato-dark);
-  font-size: 22px;
-  margin-bottom: 13px;
-}
-.empty-state h3 {
-  font-size: 14px;
-  font-weight: 600;
-  margin: 0 0 8px;
 }
 .empty-state p {
   color: var(--muted);
@@ -294,7 +196,7 @@ h2 {
   overflow-wrap: anywhere;
 }
 .job-title:hover {
-  color: var(--tomato-dark);
+  color: var(--accent-dark);
   text-decoration: underline;
 }
 .job-detail {
@@ -329,7 +231,7 @@ progress {
   margin-top: 14px;
   border: 0;
   border-radius: 3px;
-  accent-color: var(--tomato);
+  accent-color: var(--accent);
   background: #f2dfd3;
   overflow: hidden;
 }
@@ -338,11 +240,11 @@ progress::-webkit-progress-bar {
   border-radius: 3px;
 }
 progress::-webkit-progress-value {
-  background: var(--tomato);
+  background: var(--accent);
   border-radius: 3px;
 }
 progress::-moz-progress-bar {
-  background: var(--tomato);
+  background: var(--accent);
   border-radius: 3px;
 }
 .progress-detail {
@@ -352,24 +254,6 @@ progress::-moz-progress-bar {
   font-size: 10px;
   margin-top: 7px;
 }
-.history-section {
-  margin-top: 34px;
-}
-.history-icon {
-  display: grid;
-  place-items: center;
-  width: 23px;
-  height: 23px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: #f2eee6;
-  color: #716346;
-  font-size: 12px;
-}
-.history-icon.failed {
-  color: #a52c1a;
-  background: #ffebe6;
-}
 .job-error {
   margin: 5px 0 0;
   font-size: 11px;
@@ -378,40 +262,13 @@ progress::-moz-progress-bar {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
-footer {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  padding: 28px 0;
-  border-top: 1px solid var(--border);
-  margin-top: 57px;
-  color: var(--muted);
-  font-size: 11px;
-}
-.footer-dot {
-  width: 5px;
-  height: 5px;
-  background: var(--tomato);
-  border-radius: 50%;
-}
 @media (max-width: 600px) {
   .shell {
     width: calc(100% - 36px);
-  }
-  .header {
-    padding: 24px 0;
-  }
-  .header-note {
-    font-size: 11px;
-  }
-  .intro {
-    padding-top: 43px;
+    margin: 32px auto;
   }
   .input-row {
     flex-direction: column;
-  }
-  button {
-    justify-content: space-between;
   }
   .job {
     padding: 16px 12px;
@@ -419,14 +276,5 @@ footer {
   }
   .job-number {
     display: none;
-  }
-  .live-indicator {
-    font-size: 10px;
-  }
-  .section-heading {
-    gap: 8px;
-  }
-  footer {
-    margin-top: 40px;
   }
 }

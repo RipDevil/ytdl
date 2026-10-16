@@ -3,7 +3,7 @@ import { isAbsolute, relative, resolve, sep } from 'node:path';
 import { createInterface } from 'node:readline';
 import youtubeDl from 'youtube-dl-exec';
 
-const PREFIX = '__TOMATO_';
+const PREFIX = '__YTDL_';
 
 function number(value) {
   const parsed = typeof value === 'number' ? value : Number.parseFloat(String(value).trim());
@@ -12,7 +12,7 @@ function number(value) {
 
 export function parseOutput(line) {
   if (!line.startsWith(PREFIX)) return null;
-  const match = line.match(/^__TOMATO_(META|PROGRESS|FILE)__(.*)$/);
+  const match = line.match(/^__YTDL_(META|PROGRESS|FILE)__(.*)$/);
   if (!match) return null;
   try {
     const value = JSON.parse(match[2]);
@@ -55,12 +55,12 @@ export function createDownloader({ downloadsDir, binaryPath = 'yt-dlp', exec }) 
       progressDelta: 1,
       jsRuntimes: 'node',
       print: [
-        'before_dl:__TOMATO_META__%(title)j',
-        'after_move:__TOMATO_FILE__%(filepath)j',
+        'before_dl:__YTDL_META__%(title)j',
+        'after_move:__YTDL_FILE__%(filepath)j',
       ],
       progressTemplate: [
-        'download:__TOMATO_PROGRESS__{"stage":"downloading","percent":%(progress._percent_str)j,"speed":%(progress.speed)j,"eta":%(progress.eta)j}',
-        'postprocess:__TOMATO_PROGRESS__{"stage":"processing"}',
+        'download:__YTDL_PROGRESS__{"stage":"downloading","percent":%(progress._percent_str)j,"speed":%(progress.speed)j,"eta":%(progress.eta)j}',
+        'postprocess:__YTDL_PROGRESS__{"stage":"processing"}',
       ],
     }, { detached: process.platform !== 'win32', stdio: ['ignore', 'pipe', 'pipe'] });
 
